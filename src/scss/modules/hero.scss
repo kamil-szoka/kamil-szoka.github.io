@@ -1,5 +1,17 @@
 .hero {
   padding: 54px 16px 0;
+  @media (min-width: $tablet) {
+    max-width: 768px;
+    margin: 0 auto;
+  }
+  @media (min-width: $desktop) {
+    max-width: 100%;
+  }
+  &__bubble {
+    position: absolute;
+    left: calc(50% + 90px);
+    top: -26px;
+  }
   &__contact {
     border-radius: 64px;
     color: #fff;
@@ -12,15 +24,61 @@
   }
   &__description {
     text-align: center;
+    @media (min-width: $desktop) {
+      max-width: 786px;
+      margin: 0 auto;
+      position: relative;
+      &::before,
+      &::after {
+        content: "";
+        width: 82.94px;
+        height: 254.88px;
+        display: block;
+        position: absolute;
+      }
+      &::before {
+        background: url("../assets/img/left.svg");
+        right: 100%;
+      }
+      &::after {
+        background: url("../assets/img/right.svg");
+        top: 0;
+        left: 100%;
+      }
+    }
   }
   &__header {
     font-size: 26px;
     line-height: 32px;
     text-align: center;
     color: $textDark;
+    @media (min-width: $desktop) {
+      font-size: 32px;
+      line-height: 40px;
+    }
   }
   &__hello {
     display: none;
+    @media (min-width: $desktop) {
+      display: block;
+      background: $blue;
+      color: #fff;
+      padding: 16px 19px;
+      border-radius: 16px;
+      font-weight: bold;
+      font-size: 32px;
+      position: relative;
+      &:after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 32px;
+        display: block;
+        width: 17.42px;
+        height: 22.66px;
+        background: url("../assets/img/speech.svg");
+      }
+    }
   }
   &__image {
     width: 96px;
@@ -28,11 +86,17 @@
     border-radius: 50%;
     border: 16px solid #f6f9fd;
     box-sizing: content-box;
+    @media (min-width: $desktop) {
+      width: 178px;
+      height: 178px;
+      border: 24px solid #f6f9fd;
+    }
   }
   &__image-container {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
   }
   &__link {
     font-weight: bold;
@@ -45,8 +109,13 @@
     line-height: 32px;
     text-align: center;
     margin-bottom: 48px;
+    @media (min-width: $desktop) {
+      font-size: 20px;
+      line-height: 40px;
+    }
   }
   &__special {
     color: $blue;
+    white-space: nowrap;
   }
 }
